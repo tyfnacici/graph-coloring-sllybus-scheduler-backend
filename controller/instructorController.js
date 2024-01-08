@@ -11,9 +11,7 @@ exports.createInstructor = async (req, res) => {
 
 exports.getInstructorByinstructorId = async (req, res) => {
   try {
-    const instructor = await instructorService.getInstructorByInstructorId(
-      req.params.id
-    )
+    const instructor = await instructorService.findInstructorByID(req.params.id)
     res.json({ data: instructor, status: "success" })
   } catch (error) {
     res.status(500).json({ error: error.message })

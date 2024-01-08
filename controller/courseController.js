@@ -11,7 +11,7 @@ exports.createCourse = async (req, res) => {
 
 exports.getCourseByCourseId = async (req, res) => {
   try {
-    const course = await courseService.getCourseByCourseId(req.params.id)
+    const course = await courseService.findCourseByID(req.params.id)
     res.json({ data: course, status: "success" })
   } catch (error) {
     res.status(500).json({ error: error.message })
